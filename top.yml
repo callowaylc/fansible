@@ -1,0 +1,8 @@
+# Provides mappings of plays to hosts
+---
+all:
+  - playbooks/packages.yml
+
+elasticsearch:
+  - playbooks/elasticsearch.yml
+  - playbooks/kibana.yml
