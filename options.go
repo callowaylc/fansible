@@ -10,12 +10,13 @@ import(
 type Options struct {
   Inventory string `default:"/etc/ansible/host" short:"i" long:"inventory-file" description:"specify inventory host path"`
   Command string `default:"/etc/ansible/host" short:"c" long:"command" description:"wraps an ansible-playbook command"`
+  Top bool `long:"apply-top" description:"Applies all configured plays defined in the top file"`
 }
 var o Options
 
 func InitOptions() {
   p := flags.NewParser(&o, flags.Default)
-  args, err := p.Parse()
+  _, err := p.Parse()
   
   if flagsErr, ok := err.(*flags.Error); ok {
     switch flagsErr.Type {
@@ -34,7 +35,7 @@ func InitOptions() {
 
   // in the event of passing no arguments, we print help
   // message and exit 0
-  if len(args) == 0 {
+  if len(os.Args) == 1 {
     p.WriteHelp(os.Stdout)
     fmt.Println()
     os.Exit(0)

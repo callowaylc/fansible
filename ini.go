@@ -1,7 +1,7 @@
 package fansible
 
 import (
-  "github.com/go-ini/ini"
+  _ "github.com/go-ini/ini"
 )
 
 func InitIni() { }

@@ -2,15 +2,29 @@ package fansible
 // http://squarism.com/2014/10/13/yaml-go/
 
 import (
-  "fmt"
-  "gopkg.in/yaml.v2"
+  _ "fmt"
+  yaml "gopkg.in/yaml.v2"
   "io/ioutil"
 )
 
-type Top struct {
-  Environments map[string][]string
-}
+const (
+  file string = "./top.yml"
+)
+
+type Top map[string][]string
+var t Top
 
 func InitTop() {
+  content, err := ioutil.ReadFile(file)
+  if err != nil {
+    panic(err)
+  }
 
+  if err = yaml.Unmarshal([]byte(content), &t); err != nil {
+    panic(err)
+  }
+}
+
+func GetTop() Top {
+  return t
 }
