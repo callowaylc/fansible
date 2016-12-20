@@ -1,7 +1,7 @@
 package main
 
 import(
-  "fmt"
+  _ "fmt"
   a "github.com/callowaylc/fansible"
 )
 
@@ -13,5 +13,9 @@ func init() {
 
 func main() {
   top := a.GetTop()
-  fmt.Println(top)
+  for target, _ := range top {
+    a.Logs("process target to merge roles", a.LogFields{
+      "target": target,
+    })
+  }
 }
