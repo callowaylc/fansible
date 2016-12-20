@@ -1,0 +1,23 @@
+[web]
+web1 ansible_host=172.17.1.1
+web2 ansible_host=172.17.1.2
+web3 ansible_host=172.17.2.1
+web4 ansible_host=172.17.2.2
+
+[search]
+search1 ansible_host=172.17.1.11
+search2 ansible_host=172.17.1.12
+search3 ansible_host=172.17.2.11
+search4 ansible_host=172.17.2.12
+
+[staging:children]
+web1
+web2
+search1
+search2
+
+[production:children]
+web3
+web4
+search3
+search4

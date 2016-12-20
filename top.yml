@@ -1,8 +1,15 @@
 # Provides mappings of plays to hosts
 ---
 all:
-  - playbooks/packages.yml
+  - plays/packages.yml
+  - plays/docker.yml
 
-elasticsearch:
-  - playbooks/elasticsearch.yml
-  - playbooks/kibana.yml
+web:
+  - plays/nginx.yml
+  - plays/unicorn.yml
+  - plays/rails.yml
+  - plays/application.yml
+  
+search:
+  - plays/elasticsearch.yml
+  - plays/kibana.yml

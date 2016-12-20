@@ -10,7 +10,8 @@ import(
 type Options struct {
   Inventory string `default:"/etc/ansible/host" short:"i" long:"inventory-file" description:"specify inventory host path"`
   Command string `default:"/etc/ansible/host" short:"c" long:"command" description:"wraps an ansible-playbook command"`
-  Top bool `long:"apply-top" description:"Applies all configured plays defined in the top file"`
+  Top bool `long:"apply-top" description:"applies all configured plays defined in the top file"`
+  Logs bool `long:"logs" description:"enables logging by fansible application to stderr"`
 }
 var o Options
 

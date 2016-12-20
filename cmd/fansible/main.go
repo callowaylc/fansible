@@ -7,6 +7,7 @@ import(
 
 func init() {
   a.InitOptions()
+  a.InitLogs()
   a.InitTop()
 }
 
