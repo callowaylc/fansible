@@ -1,10 +1,9 @@
 package fansible
-// http://squarism.com/2014/10/13/yaml-go/
 
 import (
   _ "fmt"
-  yaml "gopkg.in/yaml.v2"
   "io/ioutil"
+  yaml "gopkg.in/yaml.v2"
 )
 
 const (
